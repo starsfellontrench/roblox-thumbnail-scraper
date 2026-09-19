@@ -764,7 +764,7 @@ def write_gallery(output_dir: Path, records: list[GameRecord], title: str) -> Pa
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
         f"<title>{html.escape(title)}</title><style>{css}</style></head><body><main>"
         f"<header><div><h1>{html.escape(title)}</h1><p>Generated {generated_at}</p></div>"
-        f"<div class=\"controls\"><input id=\"search\" type=\"search\" placeholder=\"Search names or what is in the image...\" aria-label=\"Search names or what is in the image\">"
+        f"<div class=\"controls\"><input id=\"search\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">"
         f"<span id=\"result-count\" class=\"stats\">{len(records)} games</span></div></header>"
         f"<section class=\"grid\">{''.join(cards)}</section></main><script>{script}</script></body></html>"
     )

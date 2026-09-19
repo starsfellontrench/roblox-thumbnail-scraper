@@ -12,7 +12,26 @@ python -m pip install -r requirements.txt
 
 ## Windows download
 
-Download `downloads/roblox_thumbnail_scraper.exe` from this repository and run it from a folder where it can create its output. Use `--visual-search` to enable local image-content search. The first visual-search run downloads the local model once; the thumbnails stay on the computer.
+1. Open the `downloads` folder in this repository.
+2. Download `roblox_thumbnail_scraper.exe` to a normal folder on your computer.
+3. Open PowerShell in that folder.
+4. Run the scraper with visual search enabled:
+
+```powershell
+.\roblox_thumbnail_scraper.exe --limit 50 --visual-search
+```
+
+The first visual-search run downloads the local model once. Roblox still needs to be reachable while scraping, but the downloaded thumbnails and image analysis stay on the computer.
+
+## Using visual search
+
+1. Wait for the scraper to finish downloading the games and thumbnails.
+2. Open `output\index.html` in your browser.
+3. Type a search into the box labeled `Search`.
+4. Use simple visual terms such as `gun`, `character`, `car`, `zombie`, `weapon`, `stealing`, or `explosion`.
+5. Use multiple words when you want both ideas to match, such as `character stealing`.
+
+The search uses visual tags generated locally for each thumbnail. It is better with concrete objects and scenes than with complicated actions or long sentences. If a specific phrase returns nothing, try shorter terms.
 
 ## Run
 
