@@ -61,19 +61,49 @@ python roblox_thumbnail_scraper.py --visual-search --model-dir "D:\\Models\\clip
 
 The API cache defaults to `.cache` and lasts 24 hours. Existing image files are reused unless `--refresh-cache` is set.
 
+## Thumbnail organizer
+
+The organizer runs locally in a browser and works with an existing scraper output folder. It groups near-duplicate images, saves favorites in the output folder, filters by game, tag, resolution, and duplicate group, creates contact sheets, and exports selected images to ZIP files.
+
+```powershell
+python thumbnail_organizer.py --input output
+```
+
+Use the `Search` box for game names, visual tags, or descriptions. Use the filter controls to narrow the results, click `Favorite` on images you want to keep, then use `Export favorites ZIP` or `Create contact sheet`.
+
+## Roblox game update watcher
+
+The watcher uses the games already saved by the scraper and keeps a local snapshot of Roblox metadata. It can report changes to player count, descriptions, icons, thumbnails, names, and update timestamps.
+
+Run one check:
+
+```powershell
+python roblox_game_watcher.py --input output --once
+```
+
+Keep checking every 15 minutes:
+
+```powershell
+python roblox_game_watcher.py --input output --interval 900
+```
+
+The state is saved as `output\watcher-state.json`. For Discord-compatible notifications, add `--webhook-url "https://discord.com/api/webhooks/..."`.
+
 ## Windows launcher
 
-The repository also includes a Windows Forms launcher in `launcher/`. It runs the scraper without requiring command-line options and can open the generated gallery when the scrape finishes.
+The repository also includes a Windows Forms launcher in `launcher/`. It runs the scraper without requiring command-line options and can open the native gallery or generated HTML gallery when the scrape finishes.
 
 ### Download setup
 
-1. Download `RobloxToolLauncher.exe` from the [latest release](https://github.com/starsfellontrench/roblox-thumbnail-scraper/releases/latest).
-2. Keep `RobloxToolLauncher.exe` and `roblox_thumbnail_scraper.exe` in the same folder.
+1. Download `RobloxToolLauncher.exe`, `RobloxThumbnailGallery.exe`, and `roblox_thumbnail_scraper.exe` from the [latest release](https://github.com/starsfellontrench/roblox-thumbnail-scraper/releases/latest).
+2. Keep all three files in the same folder.
 3. Double-click `RobloxToolLauncher.exe`.
 4. If it does not find the scraper automatically, use Browse to select `roblox_thumbnail_scraper.exe`.
 5. Choose the game count, workers, thumbnail count, and output folder.
 6. Enable local visual search if you want to search thumbnails by image content.
 7. Click `Run scraper`, then click `Open gallery` when it finishes.
+
+The launcher also supports saved profiles, recent output folders, a scrape history, a progress bar, cancellation, automatic gallery opening, and one daily scheduled run. It prefers the native gallery when `RobloxThumbnailGallery.exe` is beside it.
 
 The first visual-search run downloads the local model once. Images stay on the computer and are not sent to a vision service.
 
@@ -94,3 +124,22 @@ Copy `downloads\roblox_thumbnail_scraper.exe` beside the published launcher befo
 - `Workers` controls how many requests and image downloads happen at the same time. Use `1` or `2` for safer API usage.
 - `Thumbnails per game` controls how many thumbnails are requested for each game.
 - `Enable local visual search` adds locally generated image-content tags to the gallery.
+
+## Native Windows gallery
+
+`RobloxThumbnailGallery.exe` opens a scraper output folder as a local Windows app. It provides search across game names, descriptions, and visual tags, image previews, favorites, image-path copying, Roblox game links, and sorting by rank, name, or player count.
+
+To open an output folder directly:
+
+```powershell
+.\RobloxThumbnailGallery.exe "C:\Path\To\output"
+```
+
+Favorites are saved to `favorites.json` inside that output folder.
+
+### Build the native gallery
+
+```powershell
+dotnet build gallery\RobloxThumbnailGallery\RobloxThumbnailGallery.csproj -c Release
+dotnet publish gallery\RobloxThumbnailGallery\RobloxThumbnailGallery.csproj -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o gallery\publish
+```

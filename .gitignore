@@ -12,3 +12,6 @@ dist/
 launcher/**/bin/
 launcher/**/obj/
 launcher/**/publish/
+gallery/**/bin/
+gallery/**/obj/
+gallery/**/publish/
