@@ -6,3 +6,6 @@ review_sheets/
 review_top100/
 review_top500_primary/
 Planet_Miner_thumbnail_*.png
+build/
+dist/
+*.spec
