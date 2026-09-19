@@ -91,19 +91,19 @@ The state is saved as `output\watcher-state.json`. For Discord-compatible notifi
 
 ## Windows launcher
 
-The repository also includes a Windows Forms launcher in `launcher/`. It runs the scraper without requiring command-line options and can open the native gallery or generated HTML gallery when the scrape finishes.
+The repository also includes a Windows Forms launcher in `launcher/`. It runs the scraper without requiring command-line options and can open the generated HTML gallery when the scrape finishes.
 
 ### Download setup
 
-1. Download `RobloxToolLauncher.exe`, `RobloxThumbnailGallery.exe`, and `roblox_thumbnail_scraper.exe` from the [latest release](https://github.com/starsfellontrench/roblox-thumbnail-scraper/releases/latest).
-2. Keep all three files in the same folder.
+1. Download `RobloxToolLauncher.exe` and `roblox_thumbnail_scraper.exe` from the [latest release](https://github.com/starsfellontrench/roblox-thumbnail-scraper/releases/latest).
+2. Keep both files in the same folder.
 3. Double-click `RobloxToolLauncher.exe`.
 4. If it does not find the scraper automatically, use Browse to select `roblox_thumbnail_scraper.exe`.
 5. Choose the game count, workers, thumbnail count, and output folder.
 6. Enable local visual search if you want to search thumbnails by image content.
 7. Click `Run scraper`, then click `Open gallery` when it finishes.
 
-The launcher also supports saved profiles, recent output folders, a scrape history, a progress bar, cancellation, automatic gallery opening, and one daily scheduled run. It prefers the native gallery when `RobloxThumbnailGallery.exe` is beside it.
+The launcher also supports saved profiles, recent output folders, a scrape history, a progress bar, cancellation, automatic HTML gallery opening, and one daily scheduled run.
 
 The first visual-search run downloads the local model once. Images stay on the computer and are not sent to a vision service.
 
@@ -124,22 +124,3 @@ Copy `downloads\roblox_thumbnail_scraper.exe` beside the published launcher befo
 - `Workers` controls how many requests and image downloads happen at the same time. Use `1` or `2` for safer API usage.
 - `Thumbnails per game` controls how many thumbnails are requested for each game.
 - `Enable local visual search` adds locally generated image-content tags to the gallery.
-
-## Native Windows gallery
-
-`RobloxThumbnailGallery.exe` opens a scraper output folder as a local Windows app. It provides search across game names, descriptions, and visual tags, image previews, favorites, image-path copying, Roblox game links, and sorting by rank, name, or player count.
-
-To open an output folder directly:
-
-```powershell
-.\RobloxThumbnailGallery.exe "C:\Path\To\output"
-```
-
-Favorites are saved to `favorites.json` inside that output folder.
-
-### Build the native gallery
-
-```powershell
-dotnet build gallery\RobloxThumbnailGallery\RobloxThumbnailGallery.csproj -c Release
-dotnet publish gallery\RobloxThumbnailGallery\RobloxThumbnailGallery.csproj -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o gallery\publish
-```

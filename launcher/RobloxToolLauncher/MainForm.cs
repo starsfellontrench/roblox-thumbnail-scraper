@@ -368,12 +368,6 @@ public sealed class MainForm : Form
     private void OpenGallery()
     {
         var destination = outputPath.Text.Trim();
-        var nativeGallery = FindGallery();
-        if (File.Exists(nativeGallery) && Directory.Exists(destination))
-        {
-            Process.Start(new ProcessStartInfo { FileName = nativeGallery, ArgumentList = { destination }, UseShellExecute = true });
-            return;
-        }
         var html = Path.Combine(destination, "index.html");
         if (File.Exists(html))
         {
@@ -385,19 +379,7 @@ public sealed class MainForm : Form
 
     private static bool HasGallery(string destination)
     {
-        return File.Exists(Path.Combine(destination, "index.html")) || File.Exists(Path.Combine(AppContext.BaseDirectory, "RobloxThumbnailGallery.exe")) || File.Exists(Path.Combine(AppContext.BaseDirectory, "gallery", "RobloxThumbnailGallery.exe"));
-    }
-
-    private static string FindGallery()
-    {
-        var desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-        var candidates = new[]
-        {
-            Path.Combine(AppContext.BaseDirectory, "RobloxThumbnailGallery.exe"),
-            Path.Combine(AppContext.BaseDirectory, "gallery", "RobloxThumbnailGallery.exe"),
-            Path.Combine(desktop, "Roblox Thumbnail Scraper", "gallery", "publish", "RobloxThumbnailGallery.exe"),
-        };
-        return candidates.FirstOrDefault(File.Exists) ?? string.Empty;
+        return File.Exists(Path.Combine(destination, "index.html"));
     }
 
     private static string FindScraper()
