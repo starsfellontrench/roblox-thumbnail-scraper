@@ -60,3 +60,37 @@ python roblox_thumbnail_scraper.py --visual-search --model-dir "D:\\Models\\clip
 ```
 
 The API cache defaults to `.cache` and lasts 24 hours. Existing image files are reused unless `--refresh-cache` is set.
+
+## Windows launcher
+
+The repository also includes a Windows Forms launcher in `launcher/`. It runs the scraper without requiring command-line options and can open the generated gallery when the scrape finishes.
+
+### Download setup
+
+1. Download `RobloxToolLauncher.exe` from the [latest release](https://github.com/starsfellontrench/roblox-thumbnail-scraper/releases/latest).
+2. Keep `RobloxToolLauncher.exe` and `roblox_thumbnail_scraper.exe` in the same folder.
+3. Double-click `RobloxToolLauncher.exe`.
+4. If it does not find the scraper automatically, use Browse to select `roblox_thumbnail_scraper.exe`.
+5. Choose the game count, workers, thumbnail count, and output folder.
+6. Enable local visual search if you want to search thumbnails by image content.
+7. Click `Run scraper`, then click `Open gallery` when it finishes.
+
+The first visual-search run downloads the local model once. Images stay on the computer and are not sent to a vision service.
+
+### Build the launcher
+
+Install the .NET 8 SDK, then run these commands from the repository folder:
+
+```powershell
+dotnet build launcher\RobloxToolLauncher\RobloxToolLauncher.csproj -c Release
+dotnet publish launcher\RobloxToolLauncher\RobloxToolLauncher.csproj -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o launcher\publish
+```
+
+Copy `downloads\roblox_thumbnail_scraper.exe` beside the published launcher before running it.
+
+### Launcher controls
+
+- `Games to scrape` controls the number of Roblox games collected.
+- `Workers` controls how many requests and image downloads happen at the same time. Use `1` or `2` for safer API usage.
+- `Thumbnails per game` controls how many thumbnails are requested for each game.
+- `Enable local visual search` adds locally generated image-content tags to the gallery.

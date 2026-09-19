@@ -1,0 +1,15 @@
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\bin\Release\net8.0-windows\RobloxToolLauncher.exe
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\bin\Release\net8.0-windows\RobloxToolLauncher.deps.json
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\bin\Release\net8.0-windows\RobloxToolLauncher.runtimeconfig.json
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\bin\Release\net8.0-windows\RobloxToolLauncher.dll
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\bin\Release\net8.0-windows\RobloxToolLauncher.pdb
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.AssemblyInfoInputs.cache
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.AssemblyInfo.cs
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.csproj.CoreCompileInputs.cache
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.sourcelink.json
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.dll
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\refint\RobloxToolLauncher.dll
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.pdb
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\RobloxToolLauncher.genruntimeconfig.cache
+C:\Users\uuuuu\Desktop\Roblox Thumbnail Scraper\launcher\RobloxToolLauncher\obj\Release\net8.0-windows\ref\RobloxToolLauncher.dll

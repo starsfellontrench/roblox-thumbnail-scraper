@@ -9,3 +9,6 @@ Planet_Miner_thumbnail_*.png
 build/
 dist/
 *.spec
+launcher/bin/
+launcher/obj/
+launcher/publish/
